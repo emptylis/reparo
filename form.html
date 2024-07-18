@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Reparo Form</title>
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="form-title">Request Your Need</h1>
+      <form autocomplete="off" method="post" nam="google-sheet" action="#">
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Full Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="name"
+                    placeholder="Enter Full Name" required/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Service type</label>
+            <input type="text"
+                    id="service_type"
+                    name="service_type"
+                    placeholder="Enter service type" required/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Email</label>
+            <input type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email" required/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="phone"
+                    placeholder="Enter Phone Number" required/>
+          </div>
+          <div class="user-input-box">
+            <label for="address">Address</label>
+            <input type="address"
+                    id="address"
+                    name="address"
+                    placeholder="Enter you Address"required/>
+          </div>
+          <div class="user-input-box">
+            <label for="pin">Pincode</label>
+            <input type="pin"
+                    id="pin"
+                    name="pin"
+                    placeholder="Enter your Pincode" required/>
+          </div>
+          <div class="user-input-box">
+            <label for="description">Description</label>
+            <input type="description"
+                    id="description"
+                    name="description"
+                    placeholder="Describe about your need"/>
+          </div>
+          <div class="user-input-box">
+            <label for="description">Quick Service </label>
+            <input type="quick"
+                    id="quick"
+                    name="quick_service"
+                    placeholder="Type Quick for service within 1 hr"/>
+          </div>
+
+        </div>
+        <div class="form-submit-btn">
+          <button type="submit" id="sub">Request Service</button>
+        </div>
+      </form>
+    </div>
+    <script>
+        let form = document.querySelector("form");
+        // The document.querySelector() method returns the first element that matches a specified CSS selector.
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // The preventDefault() method stops the form from submitting and prevents the page from refreshing.
+            document.querySelector("#sub").value = "Submiting..";
+            // Change the value of the submit button to "Submitting..." while the form is being submitted.
+            let data = new FormData(form);
+            // The FormData() method creates a new FormData object that contains the values of all the form fields.
+            fetch('https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec', {
+                    method: "POST",
+                    body: data
+                })
+                // The fetch() method is used to make a request to the server and retrieve data.
+                // This is an example API endpoint. Replace it with the actual URL for the API endpoint you want to use.
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+                //.then(res => res.text())
+                // The .then() method is used to handle the response from the server.
+                // The response is converted to text using the res.text() method.
+                .then(data => {
+                    document.querySelector("#msg").innerHTML = data;
+                    // The innerHTML property sets or returns the HTML content of an element.
+                    // Here, we are setting the content of the <h1> element to the response from the server.
+                    document.querySelector("#sub").value = "Submit"
+                    // Change the value of the submit button back to "Submit" after the form has been submitted.
+                });
+        })
+    </script>
+</body>
+ 
+</html>
