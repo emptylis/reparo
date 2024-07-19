@@ -1,55 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-body{
-    font-family: 'sans-serif', serif;
-    display: grid;
-    background-color: #ffffff;
-    align-content: center;
-    min-height: 100vh;
-}
-section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 90vh;
-    width: 85vw;
-    margin: 0 auto;
-}
-.image{
-    background: url("abt_img.jpg") center/cover no-repeat;
-    background-size: 550px;
-}
-.content{
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-.content h2{
-    text-transform: uppercase;
-    font-size: 36px;
-    letter-spacing: 6px;
-    opacity: 0.9;
-}
-.content span{
-    height: 0.5px;
-    width: 80px;
-    background: #777;
-    margin: 30px 0;
-}
-.content p{
-    padding-bottom: 15px;
-    font-weight: 300;
-    opacity: 0.7;
-    width: 60%;
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0 auto;
-    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 20px;
+}
+
+.logo img {
+    width: 180px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+
+
+}
+.about h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.about h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 .links{
     margin: 15px 0;
@@ -82,11 +93,15 @@ section{
 .icons{
     display: flex;
     padding: 15px 0;
+    align-items: center;
+    justify-content: center;
 }
 .icons li{
-    display: block;
-    padding: 5px;
-    margin: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    margin: 20px;
+    align-items: center;
 }
 .icons li i{
     font-size: 26px;
@@ -102,42 +117,4 @@ section{
     font-weight: 700;
     font-size: 13px;
     
-}
-
-/*****************/
-
-@media(max-width: 992px){
-    section{
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-    .image{
-        height: 100vh;
-    }
-    .content{
-        height: 100vh;
-    }
-    .content h2{
-        font-size: 20px;
-        margin-top: 50px;
-    }
-    .content span{
-        margin: 20px 0;
-    }
-    .content p{
-        font-size: 14px;
-    }
-    .links li a{
-        font-size: 14px;
-    }
-    .links{
-        margin: 5px 0;
-    }
-    .links li{
-        padding: 6px 10px;
-    }
-    .icons li i{
-        font-size: 15px;
-    }
-
 }
