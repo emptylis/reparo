@@ -87,34 +87,28 @@ body{
 
 .gender-category label,
 .gender-category input,
-.form-submit-btn input{
+
+
+
+
+#sub{
+    margin: 20px 0px 20px 40px;
+    border:none;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    width: 500px;
+    background-color: black;
+    color: white;
     cursor: pointer;
 }
 
-.form-submit-btn{
-    margin-top: 40px;
+#sub:hover{
+    background-color: white;
+    color: black;
 }
 
-.form-submit-btn {
-    display: block;
-    width: 100%;
-    margin: 40px auto;
-    font-size: 20px;
-    padding: 10px;
-    border:none;
-    border-radius: 3px;
-    background-color: #4a7053; /* Green color */
-    color: white; /* Text color */
-    text-align: center;
-}
 
-.form-submit-btn input:hover{
-    background: rgba(122, 195, 107, 0.7);
-    color: rgba(63, 114, 76, 0.7);
-}
-.form-submit-btn:hover {
-    background-color: #3d5e46;
-  }
 
 
 @media(max-width: 600px){
