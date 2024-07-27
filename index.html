@@ -20,6 +20,12 @@
          .footer-bg {
             background-color: #f8f9fa; /* Light gray color */
         }
+         .footer h5 {
+            font-size: 1rem; /* Decrease font size */
+        }
+        .footer p, .footer a, .footer address, .footer label {
+            font-size: 0.875rem; /* Decrease font size */
+        }
     </style>
 </head>
 <body>
@@ -122,12 +128,13 @@
                 <p>© Reparo, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
             </div>
           </footer> -->
-   <footer class="footer-bg text-dark py-4">
+  <!-- Footer -->
+    <footer class="footer footer-bg text-dark py-4">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
                     <h5>About Us</h5>
-                    <p> A trusted partner in home maintenance and repair services. We are dedicated to making your life easier by offering top-notch plumbing, electrical, and installation services right at your doorstep.</p>
+                    <p>A trusted partner in home maintenance and repair services. We are dedicated to making your life easier by offering top-notch plumbing, electrical, and installation services right at your doorstep.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
@@ -138,11 +145,21 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Contact Us</h5>
-                    <address>
-                        1234 Street Name<br>
-                        City, State, 12345<br>
-                        <a href="mailto:info@example.com" class="text-dark">info@example.com</a>
-                    </address>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="query">Query</label>
+                            <textarea class="form-control" id="query" rows="3" placeholder="Enter your query"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="text-center mt-3">
