@@ -110,11 +110,4 @@ main {
 .icons li i:hover{
     color: #06d6a0;
 }
-.details{
-    display: flex;
-    justify-content: space-between;
-    white-space: pre;
-    font-weight: 700;
-    font-size: 13px;
-    
-}
+
