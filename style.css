@@ -140,4 +140,10 @@ body{
     .main-user-info::-webkit-scrollbar{
         width: 0;
     }
+    #sub{
+        margin-bottom: 12px;
+        width: 80%;
+        justify-content: space-between;
+
+    }
 }
