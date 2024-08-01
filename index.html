@@ -68,10 +68,10 @@
                   Services
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Electrical</a></li>
-                  <li><a class="dropdown-item" href="#">Plumbing</a></li>
-                  <li><a class="dropdown-item" href="#">Installations</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#row">Electrical</a></li>
+                  <li><a class="dropdown-item" href="#row">Plumbing</a></li>
+                  <li><a class="dropdown-item" href="#row">Installations</a></li>
+                  
                 </ul>
               </li>
             </ul>
@@ -83,25 +83,41 @@
         </div>
       </nav>
 
-      <div id="carouselExampleIndicators" class="carousel slide">
+      
+      <div id="carousel" class="carousel carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" data-bs-interval="7000">
             <img src="assets/man-electrical-technician-working-switchboard-with-fuses.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Electrical</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="7000">
+            <img src="assets/plumbing-repair-service.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Plumbing</h5>
+              <p></p>
+            </div>
           </div>
           <div class="carousel-item">
-            <img src="assets/plumbing-repair-service.jpg" class="d-block w-100" alt="...">
+            <img src="assets/man-electrical-technician-working-switchboard-with-fuses.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Installations</h5>
+              <p></p>
+            </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -110,7 +126,7 @@
       <div class="container marketing">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="row" id="row">
           <div class="col-lg-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
                 <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
