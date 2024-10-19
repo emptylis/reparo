@@ -103,7 +103,6 @@
         e.preventDefault();
         document.querySelector("#sub").value = "Submitting...";
         let data = new FormData(form);
-        console.log(data);
         try {
           let response = await fetch(
             "https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec",
@@ -115,7 +114,6 @@
 
           if (response.ok) {
             alert("Thanks for Contacting us..! We Will Contact You Soon...");
-            window.location.href = "index.html";
           } else {
             alert("There was a problem with your request.");
           }
@@ -124,6 +122,23 @@
           alert("There was an error submitting the form.");
         } finally {
           document.querySelector("#sub").value = "Submit";
+        }
+        try {
+          let response = await fetch(
+            "https://reparo-sms.onrender.com/send-sms",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: data,
+            }
+          );
+        } catch (error) {
+          console.error("Error!", error.message);
+          alert("There was an error with SMS.");
+        } finally {
+          document.querySelector("#sub").innerText = "Request Service";
         }
       });
     </script>
