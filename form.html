@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <title>Reparo Form</title>
-    <meta name="viewport" content="width=device-width,
-      initial-scale=1.0"/>
+    <meta
+      name="viewport"
+      content="width=device-width,
+      initial-scale=1.0"
+    />
     <link rel="stylesheet" href="style.css" />
-
   </head>
   <body>
     <div class="container">
@@ -15,94 +17,115 @@
         <div class="main-user-info">
           <div class="user-input-box">
             <label for="fullName">Full Name</label>
-            <input type="text"
-                    id="fullName"
-                    name="name"
-                    placeholder="Enter Full Name" required/>
+            <input
+              type="text"
+              id="fullName"
+              name="name"
+              placeholder="Enter Full Name"
+              required
+            />
           </div>
           <div class="user-input-box">
             <label for="username">Service type</label>
-            <input type="text"
-                    id="service_type"
-                    name="service_type"
-                    placeholder="Enter service type" required/>
+            <input
+              type="text"
+              id="service_type"
+              name="service_type"
+              placeholder="Enter service type"
+              required
+            />
           </div>
           <div class="user-input-box">
             <label for="email">Email</label>
-            <input type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter Email"/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+            />
           </div>
           <div class="user-input-box">
             <label for="phoneNumber">Phone Number</label>
-            <input type="number"
-                    id="phoneNumber"
-                    name="phone"
-                    placeholder="Enter Phone Number" required/>
+            <input
+              type="number"
+              id="phoneNumber"
+              name="phone"
+              placeholder="Enter Phone Number"
+              required
+            />
           </div>
           <div class="user-input-box">
             <label for="address">Address</label>
-            <input type="address"
-                    id="address"
-                    name="address"
-                    placeholder="Enter you Address"required/>
+            <input
+              type="address"
+              id="address"
+              name="address"
+              placeholder="Enter you Address"
+              required
+            />
           </div>
           <div class="user-input-box">
             <label for="pin">Pincode</label>
-            <input type="number"
-                    id="pin"
-                    name="pin"
-                    placeholder="Enter your Pincode" required/>
+            <input
+              type="number"
+              id="pin"
+              name="pin"
+              placeholder="Enter your Pincode"
+              required
+            />
           </div>
           <div class="user-input-box">
             <label for="description">Description</label>
-            <input type="description"
-                    id="description"
-                    name="description"
-                    placeholder="Describe about your need"/>
+            <input
+              type="description"
+              id="description"
+              name="description"
+              placeholder="Describe about your need"
+            />
           </div>
           <div class="user-input-box">
             <label for="description">Quick Service </label>
-            <input type="quick"
-                    id="quick"
-                    name="quick_service"
-                    placeholder="Type Quick for service within 1 hr"/>
+            <input
+              type="quick"
+              id="quick"
+              name="quick_service"
+              placeholder="Type Quick for service within 1 hr"
+            />
           </div>
-          
-        <button type="submit" id="sub">Request Service</button>
+
+          <button type="submit" id="sub">Request Service</button>
         </div>
-        
-      
       </form>
     </div>
     <script>
-       let form = document.querySelector("form");
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            document.querySelector("#sub").value = "Submitting...";
-            let data = new FormData(form);
-
-            try {
-                let response = await fetch('https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec', {
-                    method: "POST",
-                    body: data
-                });
-
-                if (response.ok) {
-                    alert("Thanks for Contacting us..! We Will Contact You Soon...");
-                     window.location.href = 'index.html';
-                } else {
-                    alert("There was a problem with your request.");
-                }
-            } catch (error) {
-                console.error('Error!', error.message);
-                alert("There was an error submitting the form.");
-            } finally {
-                document.querySelector("#sub").value = "Submit";
+      let form = document.querySelector("form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        document.querySelector("#sub").value = "Submitting...";
+        let data = new FormData(form);
+        console.log(data);
+        try {
+          let response = await fetch(
+            "https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec",
+            {
+              method: "POST",
+              body: data,
             }
-        });
+          );
+
+          if (response.ok) {
+            alert("Thanks for Contacting us..! We Will Contact You Soon...");
+            window.location.href = "index.html";
+          } else {
+            alert("There was a problem with your request.");
+          }
+        } catch (error) {
+          console.error("Error!", error.message);
+          alert("There was an error submitting the form.");
+        } finally {
+          document.querySelector("#sub").value = "Submit";
+        }
+      });
     </script>
-</body>
- 
+  </body>
 </html>
