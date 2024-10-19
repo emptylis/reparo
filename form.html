@@ -103,6 +103,7 @@
         e.preventDefault();
         document.querySelector("#sub").value = "Submitting...";
         let data = new FormData(form);
+        console.log(data);
         try {
           let response = await fetch(
             "https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec",
