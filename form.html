@@ -127,13 +127,16 @@
         }
         try {
           let response = await fetch(
-            "https://reparo-sms.onrender.com/send-sms",
+            "https://reparo-sms.onrender.com/send-message",
             {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(data),
+              body: JSON.stringify({
+                message: "Hey. You have a new client",
+                phoneNumber: "918860198664",
+              }),
             }
           );
         } catch (error) {
