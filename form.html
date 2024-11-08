@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Reparo Form</title>
-    <meta
-      name="viewport"
-      content="width=device-width,
-      initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      emailjs.init("M-J6OAwZ47AYPNSEJ"); // Replace YOUR_PUBLIC_KEY with your actual EmailJS public key
+    </script>
   </head>
   <body>
     <div class="container">
       <h1 class="form-title">Request Your Need</h1>
-      <form autocomplete="off" method="post" nam="google-sheet" action="#">
+      <form id="contact-form" autocomplete="off" method="post" action="#">
         <div class="main-user-info">
+          <!-- Form fields here -->
           <div class="user-input-box">
             <label for="fullName">Full Name</label>
             <input
@@ -26,7 +30,7 @@
             />
           </div>
           <div class="user-input-box">
-            <label for="username">Service type</label>
+            <label for="service_type">Service type</label>
             <input
               type="text"
               id="service_type"
@@ -60,7 +64,7 @@
               type="address"
               id="address"
               name="address"
-              placeholder="Enter you Address"
+              placeholder="Enter your Address"
               required
             />
           </div>
@@ -77,72 +81,61 @@
           <div class="user-input-box">
             <label for="description">Description</label>
             <input
-              type="description"
+              type="text"
               id="description"
               name="description"
-              placeholder="Describe about your need"
+              placeholder="Describe your need"
             />
           </div>
           <div class="user-input-box">
-            <label for="description">Quick Service </label>
+            <label for="quick">Quick Service </label>
             <input
-              type="quick"
+              type="text"
               id="quick"
               name="quick_service"
               placeholder="Type Quick for service within 1 hr"
             />
           </div>
-
           <button type="submit" id="sub">Request Service</button>
         </div>
       </form>
     </div>
+
     <script>
-      let form = document.querySelector("form");
+      let form = document.getElementById("contact-form");
       form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        document.querySelector("#sub").value = "Submitting...";
-        let data = new FormData(form);
-        console.log(data);
+        e.preventDefault(); // Prevent default form submission
+        document.getElementById("sub").innerText = "Submitting...";
+
         try {
-          let response = await fetch(
+          // Send the form data using EmailJS
+          await emailjs.sendForm("service_rr3hpsf", "template_fie40yf", form);
+          alert("Email sent successfully!");
+
+          // Google Sheets submission
+          let data = new FormData(form);
+          await fetch(
             "https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec",
-            {
-              method: "POST",
-              body: data,
-            }
+            { method: "POST", body: data }
           );
-          if (response.ok) {
-            alert("Thanks for Contacting us..! We Will Contact You Soon...");
-          } else {
-            alert("There was a problem with your request.");
-          }
+          alert("Thanks for Contacting us..! We Will Contact You Soon...");
+
+          // SMS submission
+          await fetch("https://reparo-sms.onrender.com/send-message", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              message: "Hey. You have a new client \n ",
+              phoneNumber: "918860198664",
+            }),
+          });
+          alert("SMS sent successfully!");
         } catch (error) {
           console.error("Error!", error.message);
-          alert("There was an error submitting the form.");
+          alert("There was an error with your request.");
         } finally {
-          document.querySelector("#sub").value = "Submit";
-        }
-        try {
-          let response = await fetch(
-            "https://reparo-sms.onrender.com/send-message",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                message: "Hey. You have a new client \n ",
-                phoneNumber: "918860198664",
-              }),
-            }
-          );
-          window.location.href = "index.html";
-        } catch (error) {
-          console.error("Error!", error.message);
-          alert("There was an error with SMS.");
-        } finally {
-          document.querySelector("#sub").innerText = "Request Service";
+          document.getElementById("sub").innerText = "Request Service";
+          form.reset();
         }
       });
     </script>
