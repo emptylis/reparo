@@ -119,17 +119,7 @@
             { method: "POST", body: data }
           );
           alert("Thanks for Contacting us..! We Will Contact You Soon...");
-
-          // SMS submission
-          await fetch("https://reparo-sms.onrender.com/send-message", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              message: "Hey. You have a new client \n ",
-              phoneNumber: "918860198664",
-            }),
-          });
-          alert("SMS sent successfully!");
+          window.location.href = "/";
         } catch (error) {
           console.error("Error!", error.message);
           alert("There was an error with your request.");
