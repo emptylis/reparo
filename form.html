@@ -101,11 +101,14 @@
         document.getElementById("sub").innerText = "Submitting...";
 
         try {
+          // Send the form data using EmailJS
+          await emailjs.sendForm("service_rr3hpsf", "template_fie40yf", form);
+
           // Google Sheets submission
           let data = new FormData(form);
           await fetch(
             "https://script.google.com/macros/s/AKfycbxxz3tLtlxb-gpThI2dYBjwvQWyta6AzkrKLcGJhr8rMmXVfjYFzXjj5e6Y1YJklc8x/exec",
-            { method: "POST", body: data } // Set mode to "no-cors"
+            { method: "POST", body: data }
           );
           alert("Thanks for Contacting us..! We Will Contact You Soon...");
           window.location.href = "/";
