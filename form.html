@@ -101,9 +101,6 @@
         document.getElementById("sub").innerText = "Submitting...";
 
         try {
-          // Send the form data using EmailJS
-          await emailjs.sendForm("service_rr3hpsf", "template_fie40yf", form);
-
           // Google Sheets submission
           let data = new FormData(form);
           await fetch(
