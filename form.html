@@ -96,10 +96,32 @@
 
     <script>
       let form = document.getElementById("contact-form");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        document.getElementById("sub").innerText = "Submitting...";
+      // Phone number validation function
+      function validatePhoneNumber() {
+        const phoneInput = document.getElementById("phoneNumber").value;
 
+        // Check if phone number is exactly 10 digits and is a valid number
+        if (phoneInput.length !== 10 || isNaN(phoneInput)) {
+          alert("Please enter a valid 10-digit phone number.");
+          return false;
+        }
+        return true; // Phone number is valid
+      }
+      function validatePincode() {
+        const pinInput = document.getElementById("pin").value;
+
+        if (pinInput.length !== 6 || isNaN(pinInput)) {
+          alert("Please enter a valid 6-digit pincode.");
+          return false;
+        }
+        return true; // Phone number is valid
+      }
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Prevent default form
+        if (!validatePhoneNumber() || !validatePincode()) {
+          return; // Stop form submission if phone number is invalid
+        }
+        document.getElementById("sub").innerText = "Submitting...";
         try {
           // Google Sheets submission
           let data = new FormData(form);
