@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Reparo Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="form-title">Request Your Need</h1>
+      <form id="contact-form" autocomplete="off" method="post" action="#">
+        <div class="main-user-info">
+          <!-- Form fields here -->
+          <div class="user-input-box">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="name"
+              placeholder="Enter Full Name"
+              required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="service_type">Service type</label>
+            <input
+              type="text"
+              id="service_type"
+              name="service_type"
+              placeholder="Enter service type"
+              required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="number"
+              id="phoneNumber"
+              name="phone"
+              placeholder="Enter Phone Number"
+              required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="address">Address</label>
+            <input
+              type="address"
+              id="address"
+              name="address"
+              placeholder="Enter your Address"
+              required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="pin">Pincode</label>
+            <input
+              type="number"
+              id="pin"
+              name="pin"
+              placeholder="Enter your Pincode"
+              required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Describe your need"
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="quick">Quick Service </label>
+            <input
+              type="text"
+              id="quick"
+              name="quick_service"
+              placeholder="Type Quick for service within 1 hr"
+            />
+          </div>
+          <button type="submit" id="sub">Request Service</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      let form = document.getElementById("contact-form");
+      // Phone number validation function
+      function validatePhoneNumber() {
+        const phoneInput = document.getElementById("phoneNumber").value;
+
+        // Check if phone number is exactly 10 digits and is a valid number
+        if (phoneInput.length !== 10 || isNaN(phoneInput)) {
+          alert("Please enter a valid 10-digit phone number.");
+          return false;
+        }
+        return true; // Phone number is valid
+      }
+      function validatePincode() {
+        const pinInput = document.getElementById("pin").value;
+
+        if (pinInput.length !== 6 || isNaN(pinInput)) {
+          alert("Please enter a valid 6-digit pincode.");
+          return false;
+        }
+        return true; // Phone number is valid
+      }
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Prevent default form
+        if (!validatePhoneNumber() || !validatePincode()) {
+          return; // Stop form submission if phone number is invalid
+        }
+        document.getElementById("sub").innerText = "Submitting...";
+        try {
+          // Google Sheets submission
+          let data = new FormData(form);
+          await fetch(
+            "https://script.google.com/macros/s/AKfycbzl9UIhFcoUOJ5V1rAkAOIVRXmVRRn_Ql4ORboBbYpwMfZevDIHNcqQeqylrOBcCH1X3Q/exec",
+            { method: "POST", body: data }
+          );
+          alert("Thanks for Contacting us..! We Will Contact You Soon...");
+          window.location.href = "/";
+        } catch (error) {
+          console.error("Error!", error.message);
+          alert("There was an error with your request.");
+        } finally {
+          document.getElementById("sub").innerText = "Request Service";
+          form.reset();
+        }
+      });
+    </script>
+  </body>
+</html>
