@@ -9,29 +9,30 @@
     <link rel="icon" href="assets/favicon.ico" >
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
     <style>
-        .navbar {
+      .navbar {
         background-color: white !important;
-    }
-    .navbar .nav-link,
-    .navbar .navbar-brand {
+      }
+      .navbar .nav-link,
+      .navbar .navbar-brand {
         color: black !important; /* Change text color if needed */
-    }
-    .navbar .nav-link:hover,
-    .navbar .navbar-brand:hover {
-        color: grey !important; /* Hover color */
-    }
-        .carousel{
+      }
+      .navbar .nav-link:hover,
+      .navbar .navbar-brand:hover {
+          color: grey !important; /* Hover color */
+      }
+      .carousel{
         margin-bottom: 4rem;
         max-width: 100%;
-    }
-    .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-    }
-    .carousel-item {
-    height: auto;
-    }
-
+      }
+      .marketing .col-lg-4 {
+         margin-bottom: 1.5rem;
+         text-align: center;
+      }
+      @media (max-width: 768px) {
+  .carousel-item img {
+    height: 43vh; /* Prevent cropping on smaller screens */
+  }
+}
     
          .footer-bg {
             background-color: #f8f9fa; /* Light gray color */
@@ -58,6 +59,7 @@
         .icons li:last-child {
         margin-right: 0;
         }
+        
        
     </style>
 </head>
@@ -108,21 +110,21 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="7000">
-            <img src="assets/IMG_2920.JPG" class="d-block w-100" alt="..." style="aspect-ratio: 3/2;" >
+            <img src="assets/IMG_2920.JPG" class="d-block w-100" alt="..." style="aspect-ratio: 3/2; object-fit: contain;">
             <div class="carousel-caption d-none d-md-block">
               <h5></h5>
               <p></p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7000">
-            <img src="assets/plumbing-repair-service.jpg" class="d-block w-100" alt="..." style="aspect-ratio: 3/2;">
+            <img src="assets/plumbing-repair-service.jpg" class="d-block w-100" alt="..." style="aspect-ratio: 3/2; object-fit: contain;">
             <div class="carousel-caption d-none d-md-block">
               <h5></h5>
               <p></p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="7000">
-            <img src="assets/man-electrical-technician-working-switchboard-with-fuses.jpg" class="d-block w-100" alt="..." style="aspect-ratio: 3/2;">
+            <img src="assets/man-electrical-technician-working-switchboard-with-fuses.jpg" class="d-block w-100" alt="..." style="aspect-ratio: 3/2; object-fit: contain;">
             <div class="carousel-caption d-none d-md-block">
               <h5></h5>
               <p></p>
