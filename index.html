@@ -21,6 +21,7 @@
           color: grey !important; /* Hover color */
       }
       .carousel{
+        margin-top: 50px;
         margin-bottom: 4rem;
         max-width: 100%;
       }
@@ -28,12 +29,8 @@
          margin-bottom: 1.5rem;
          text-align: center;
       }
-      @media (max-width: 768px) {
-  .carousel-item img {
-    height: 43vh; /* Prevent cropping on smaller screens */
-  }
-}
-    
+
+
          .footer-bg {
             background-color: #f8f9fa; /* Light gray color */
         }
@@ -101,7 +98,7 @@
         </div>
       </nav>
 
-      <div class="container">
+      <div class="container-fluid">
       <div id="carousel" class="carousel carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
